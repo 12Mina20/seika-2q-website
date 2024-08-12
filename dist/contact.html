@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 50px;
+            padding-top: 20px;
+            box-sizing: border-box;
+            font-family: 'eurofurence light';
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            box-sizing: border-box;
+        }
+
+        label {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        input[type="email"],
+        input[type="tel"],
+        input[type="text"],
+        textarea,
+        select,
+        button {
+            margin-bottom: 50px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-family: inherit;
+            width: 300px;
+            background-color: rgb(224, 224, 224); /* 入力される前のフォーム */
+        }
+
+        option {
+            font-size: 30px;
+        }
+
+        .optional {
+            font-size: 10px;
+            position: absolute;
+            left: calc(50% + 130px);
+            top: 10px;
+            margin-top: -5px;
+            transform: translateX(-50%);
+            color: #666;
+        }
+
+        .required {
+            font-size: 10px;
+            position: absolute;
+            left: calc(50% + 130px);
+            top: 10px;
+            margin-top: -5px;
+            transform: translateX(-50%);
+            color: #bb421e;
+        }
+
+        button {
+            cursor: pointer;
+            color: #fff;
+            background-color: #bfbfbf; /* チェック項目が選択されてない状態 */
+            border: 20px;
+            width: 100px;
+            height: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        button.active {
+            background-color: #666666; /* チェック項目が活性化された状態 */
+        }
+
+        .gray {
+            background-color: rgb(224, 224, 224); /* 作成されてなかった時 */
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .flex-item {
+            margin-right: 20px;
+        }
+
+        .description {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .contactme {
+            width: 400px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            width: 100px;
+            height: auto;
+            margin-left: -1100px;
+            margin-top: -30px;
+            margin-bottom: 60px;
+        }
+
+        .sns {
+            width: 15px;
+            height: auto;
+            margin-left: -590px;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            width: 1200px;
+            margin-top: 20px;
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -50px;
+            align-items: center;
+            gap: 20px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            max-width: 400%;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            animation: animatezoom 0.6s;
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+        }
+        
+    </style>
+</head>
+
+<body lang="en">
+    <form id="form">
+        <div class="nav-container">
+            <a href="app.html" class="file:///Users/minakim/Desktop/website/dist/app.html" onclick="window.scrollTo(0, 0); return false;">Top</a>
+            <a href="contact.html" class="file:///Users/minakim/Desktop/website/dist/contact.html">Contact Me</a>
+        </div>
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/contactme.png" alt="Placeholder Image" class="contactme">
+
+
+        <div class="description">
+            <p>Please share your ideas and thoughts, I am ready to answer all your messages.</p>
+            <p>Available in Korean I English I Japanese</p>
+        </div>
+        <div style="margin-bottom: 50px;"></div>
+        <label for="first-name">First Name
+            <span class="required"><strong>Required</span></strong>
+        </label>
+        <input type="text" id="first-name" placeholder="Mina" oninvalid="onInvalid(event)" oninput="onInput(event)" required>
+
+        <label for="last-name">Last Name
+            <span class="required"><strong>Required</span></strong>
+        </label>
+        <input type="text" id="last-name" placeholder="Kim" oninvalid="onInvalid(event)" oninput="onInput(event)" required>
+
+        <label for="mail">Email
+            <span class="required"><strong>Required</span></strong>
+        </label>
+        <input type="email" id="mail" placeholder="k221t053@st.kyoto-seika.ac.jp" oninvalid="onInvalid(event)" oninput="onInput(event)" required>
+
+        <label for="phone-number">Mobile
+            <span class="required"><strong>Required</span></strong>
+        </label>
+        <input type="tel" id="phone-number" placeholder="+81(0)75-702-5101" oninvalid="onInvalid(event)" oninput="onInput(event)" required>
+
+        <label for="company">Company
+            <div></div><span class="optional">Optional</span></label>
+        <input type="text" id="company" placeholder="Kyoto Seika University" oninvalid="onInvalid(event)" oninput="onInput(event)">
+
+        <label for="postal-code">Postal Code
+            <div></div><span class="optional">Optional</span></label>
+        <input type="text" id="postal-code" placeholder="123456" oninput="fetchAddress()">
+
+        <label for="address">Address
+            <div></div><span class="optional">Optional</span></label>
+        <input type="text" id="address" placeholder="Iwakura-kino-cho, Sakyo-ku, Kyoto-shi, Kyoto-fu">
+
+        <label for="detailed-address">Detailed Address
+            <div></div><span class="optional">Optional</span></label>
+        <input type="text" id="detailed-address" placeholder="137">
+
+        <label for="category">Category
+            <span class="required"><strong>Required</span></strong>
+        </label>
+        <select id="category" oninvalid="onInvalid(event)" oninput="onInput(event)" required>
+            <option value="">*Select</option>
+            <option value="collaboration">Business Collaboration</option>
+            <option value="inquiry">Business Inquiry</option>
+            <option value="media">Media Request</option>
+            <option value="feedback">Feedback on works</option>
+            <option value="others">Others</option>
+        </select>
+
+        <label for="message">Message
+            <span class="required"><strong>Required</span></strong>
+        </label>
+        <textarea id="message" oninvalid="onInvalid(event)" oninput="onInput(event)" required></textarea>
+
+        <div style="margin-bottom: 10px;">
+            <input type="checkbox" id="terms-checkbox" onchange="toggleSubmitButton()">
+            <label for="terms-checkbox"><strong>I accept the Terms and Conditions</label></strong>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="checkbox" id="privacy-checkbox" onchange="toggleSubmitButton()">
+            <label for="privacy-checkbox"><strong>I agree to the Privacy Policy</label></strong>
+        </div>
+        <div style="margin-bottom: 10px;"></div>
+        <button type="submit" id="submit-button" disabled>S E N D</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>Your message has been sent successfully!</p>
+            </div>
+        </div>
+
+        <hr style="margin-top: 20px;">
+        <div class="copyright" style="text-align: right; margin-right: -900px;">
+            <p>Copyright ⓒ 2024 Mina Kim All rights reserved.</p>
+        </div>
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/minakim.png" alt="Placeholder Image" class="title">
+        <div class="icon-container">
+            <a href="https://instagram.com/">
+                <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/insta.png" alt="Instagram Icon" class="sns">
+            </a>
+            <a href="https://x.com/">
+                <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/X.png" alt="X Icon" class="sns">
+            </a>
+        </div>
+    </form>
+    <script>
+        function onInput(event) {
+            event.currentTarget.style.backgroundColor = "white";
+        }
+
+        function onInvalid(event) {
+            event.currentTarget.style.backgroundColor = "rgb(224, 224, 224)";
+        }
+
+        function toggleSubmitButton() {
+            const termsChecked = document.getElementById("terms-checkbox").checked;
+            const privacyChecked = document.getElementById("privacy-checkbox").checked;
+            const submitButton = document.getElementById("submit-button");
+
+            if (termsChecked && privacyChecked) {
+                submitButton.disabled = false;
+                submitButton.classList.add("active");
+            } else {
+                submitButton.disabled = true;
+                submitButton.classList.remove("active");
+            }
+        }
+
+        async function fetchAddress() {
+            const postalCode = document.getElementById("postal-code").value;
+            if (postalCode.length === 7) {
+                try {
+                    const response = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${postalCode}`);
+                    const data = await response.json();
+                    if (data.results) {
+                        const address = data.results[0];
+                        document.getElementById("address").value = `${address.address1}${address.address2}${address.address3}`;
+                    } else {
+                        throw new Error("Invalid postal code or no address found");
+                    }
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+        }
+
+        function openModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+            resetForm();
+        }
+
+        function resetForm() {
+            document.getElementById("form").reset();
+            document.getElementById("submit-button").disabled = true;
+            document.getElementById("submit-button").classList.remove("active");
+        }
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            setTimeout(function () {
+                openModal();
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
