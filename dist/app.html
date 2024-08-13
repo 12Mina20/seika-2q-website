@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <style>
+        body {
+            letter-spacing: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+            padding-top: 20px;
+            box-sizing: border-box;
+            font-family: 'eurofurence light';
+        }
+
+        .top-image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .top-image {
+            width: 400px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -50px;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hr {
+            width: 1200px;
+            margin-top: 20px;
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        .title {
+            width: 100px;
+            height: auto;
+            margin-left: -1100px;
+            margin-top: -30px;
+            margin-bottom: 60px;
+        }
+
+        .sns {
+            width: 15px;
+            height: auto;
+            margin-left: -590px;
+            margin-bottom: 10px;
+        }
+
+        .nav-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px; 
+            font-weight: bold;
+        }
+
+        .bottom-image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bottom-image1 {
+            width: 150px; 
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .bottom-image {
+            width: 300px; 
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        
+        .slider-container {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            height: auto;
+            margin-bottom: 100px; 
+        }
+
+        .swiper {
+            position: relative;
+            width: 100%;
+            height: 400px; 
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; 
+        }
+
+        .swiper-pagination {
+            display: none;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: #818181;
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px; 
+        }
+
+        .swiper-button-prev {
+            left: 10px; 
+        }
+        
+        .swiper-button-next {
+            right: 10px; 
+        }
+
+        .swiper-scrollbar-2 {
+            background-color: #ccc;
+            height: 5px;
+            margin-top: 100px; 
+
+        }
+
+        .graph-container {
+            width: 400px;
+            height: 240px;
+            margin-top: 100px;
+            margin-bottom: 200px;
+            text-align: center;
+        }
+
+        #imageChart {
+            width: 100%; 
+            height: auto; 
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #666;
+            text-align: right;
+            margin-right: -900px;
+        }
+    </style>
+</head>
+
+<body lang="en">
+  
+    <div class="top-image-container">
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/minakim.png" alt="Top Image" class="top-image">
+    </div>
+    <hr class="hr">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="nav-container">
+        <a href="#" class="file:///Users/minakim/Desktop/website/dist/app.html" onclick="window.scrollTo(0, 0); return false;">Top</a>
+        <a href="contact.html" class="file:///Users/minakim/Desktop/website/dist/contact.html">Contact Me</a>
+    </div>
+
+    <div class="top-image-container">
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/profile.png" alt="Profile Image" class="top-image"><br>
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/mina.png" alt="Profile Image" class="bottom-image1">
+    </div>
+    
+    <div class="info">
+        <b>Mina Kim<br>Movie Director</b><br><br> was born in Seoul, Korea<br> based in Kyoto, Japan<br><br> The department of Media Creation, Kyoto Seika University
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="bottom-image-container">
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/무제%20폴더/Works.png" alt="bottom-image" class="bottom-image">
+    </div>
+
+    <div id="swiper-container" class="slider-container">
+        <div class="swiper swiper-2">
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/무제%20폴더/01.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/무제%20폴더/02.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/무제%20폴더/03.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/무제%20폴더/04.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/무제%20폴더/05.png" alt="">
+                </div>
+            </div>
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar swiper-scrollbar-2"></div>
+            <!-- Swiper navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <div id="swiper-title-2" class="swiper-title"></div>
+    </div>
+
+    <div id="chart-container" class="graph-container">
+        <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/최종과제/Source/작품/무제%20폴더/Workactivity.png" alt="bottom-image" class="bottom-image">
+        <canvas id="imageChart"></canvas>
+    </div>
+    <hr class="hr">
+    <div class="copyright">
+        <p>Copyright ⓒ 2024 Mina Kim All rights reserved.</p>
+    </div>
+    <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/minakim.png" alt="Placeholder Image" class="title">
+    <div class="icon-container">
+        <a href="https://instagram.com/">
+            <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/insta.png" alt="Instagram Icon" class="sns">
+        </a>
+        <a href="https://x.com/">
+            <img src="file:///Users/minakim/Desktop/교토세이카/2024/1Q/cloud-computing/X.png" alt="X Icon" class="sns">
+        </a>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
+    <script>
+        // Swiper設定
+        const swiper2 = new Swiper('.swiper-2', {
+            direction: 'horizontal',
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar-2',
+                draggable: true,
+            },
+        });
+
+        const swiperTitle2 = document.getElementById('swiper-title-2');
+
+        const titles = [
+            "Hallucination(2023)",
+            "Perfume(2022)",
+            "Lillehammer(2024)",
+            "Designing Danbaul & Dungeon -Exploring the design for play-(2023)",
+            "What if LINE in 1990s(2023)"
+        ];
+
+        const updateTitle = (swiper, titleEl, titles = []) => {
+            const text = titles.length > 0 ? titles[swiper.realIndex] : `スライド${swiper.realIndex + 1}を表示しています`;
+            titleEl.textContent = text;
+        };
+
+        swiper2.on('slideChange', () => updateTitle(swiper2, swiperTitle2, titles));
+
+        // Initialize titles
+        updateTitle(swiper2, swiperTitle2, titles);
+
+        // Day.jsを使って現在の年度を読み込み、データの設定
+        const currentYear = dayjs().year();
+        const startYear = 2022;
+        const endYear = 2025;
+
+        const years = [];
+        for (let year = startYear; year <= endYear; year++) {
+            years.push(year);
+        }
+
+        const imageCounts = [2, 3, 3, 0]; // 2022, 2023, 2024, 2025
+
+        const imageCount = {
+            labels: years,
+            datasets: [{
+                label: 'Number of Work',
+                data: imageCounts,
+                backgroundColor: 'rgba(128, 128, 128, 0.8)',
+                borderColor: 'rgba(128, 128, 128, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const ctx = document.getElementById('imageChart').getContext('2d');
+        const imageChart = new Chart(ctx, {
+            type: 'bar',
+            data: imageCount,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 1, 
+                        max: 5,
+                        ticks: {
+                            stepSize: 1, 
+                        },
+                        grid: {
+                            display: false, // 横軸のライン削除
+                        },
+                    },
+                    x: {
+                        grid: {
+                            display: false, // 縦軸のライン削除
+                        },
+                    }   
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
